@@ -312,7 +312,7 @@ class _TerminalFunctionality:
 class Terminal(Text, _TerminalFunctionality):
     """Terminal widget."""
 
-    def __init__(self, *ags, **kw):
+    def __init__(self, base_user_name: str, *ags, **kw):
         """Construct a terminal widget with the parent MASTER.
 
         STANDARD OPTIONS
@@ -343,7 +343,7 @@ class Terminal(Text, _TerminalFunctionality):
         self._commands_list = []
 
         self.shell = False
-        self.basename = "tkterminal$"
+        self.basename = base_user_name
 
         self.bind("<<Cut>>", self._on_cut, True)
         self.bind("<<Paste>>", self._on_paste, True)
